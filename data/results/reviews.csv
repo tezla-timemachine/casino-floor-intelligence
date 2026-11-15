@@ -1,0 +1,11 @@
+time,run,file,eval_id,reasons,decision,note
+2026-11-15T09:02:46,20261114_claude-opus-5-5-medium_v3.1_grid,sun_aczwgavqicqxxnjl_jpg.rf.972e1eb22171ef43ab96e8e81f9f0ada.jpg,E03,low confidence; high concentration,correct,
+2026-11-15T09:02:59,20261114_claude-opus-5-5-medium_v3.1_grid,sun_amnvscpcuaxooxjv_jpg.rf.5809c4a71ec00ba4d36e641370b64f72.jpg,E02,low confidence; high concentration,correct,
+2026-11-15T09:03:08,20261114_claude-opus-5-5-medium_v3.1_grid,sun_adjtrbkpcoanlcyp_jpg.rf.b675f9a42ba5884b2226e882fd37161e.jpg,E01,low confidence; high concentration,correct,
+2026-11-15T09:03:11,20261114_claude-opus-5-5-medium_v3.1_grid,sun_amguelqiibrjnaqw_jpg.rf.088ef040deb344885b94ad5e483166a3.jpg,E04,random spot-check (1 in 10),correct,
+2026-11-15T09:03:13,20261114_claude-opus-5-5-medium_v3.1_grid,sun_aeasprfhnqzfvmxw_jpg.rf.35ed695145fcdd234db0a8d2920a1cb6.jpg,E18,low confidence; high concentration; random spot-check (1 in 10),correct,
+2026-11-15T09:03:16,20261114_claude-opus-5-5-medium_v3.1_grid,sun_akpbowwuojcnavbt_jpg.rf.053df4c26af9a4b16ac7df496d7feea7.jpg,E19,model says it isn't a casino floor,correct,
+2026-11-15T09:03:18,20261114_claude-opus-5-5-medium_v3.1_grid,sun_ajzszwebmidfmxhe_jpg.rf.7904686c3f3182c66864ae0d27658b0d.jpg,E21,low confidence; high concentration; random spot-check (1 in 10),correct,
+2026-11-15T09:03:20,20261114_claude-opus-5-5-medium_v3.1_grid,sun_amdescorsagfsokk_jpg.rf.1bde7d9d15fe00f7dd3f27e46fee50fc.jpg,E24,low confidence; model says it isn't a casino floor,correct,
+2026-11-15T09:03:22,20261114_claude-opus-5-5-medium_v3.1_grid,sun_akgijoupknnnkvle_jpg.rf.a3676a530225bbd3f126c06bf47cbacc.jpg,E25,model says it isn't a casino floor,correct,
+2026-11-15T09:03:23,20261114_claude-opus-5-5-medium_v3.1_grid,sun_ajoinnashrxmznmh_jpg.rf.a81933effd7a63094a12ca290e0be13c.jpg,E30,model says it isn't a casino floor,correct,

@@ -1,0 +1,1 @@
+Count the people visible in this casino image. Include people partly hidden or cut off by the edge, and staff. Do not count reflections, statues, posters or people on screens.

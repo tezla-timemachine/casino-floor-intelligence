@@ -1,0 +1,3 @@
+model,runs,calls,form_ok_pct,identical_count_pct,avg_spread,max_spread,same_crowd_level_pct,same_congestion_pct,within_pct_all_runs,avg_miss_all_runs,cost_per_image
+claude-opus-5-5,3,90,100,63,3.0,30 (E01),83,77,88,2.6,0.0196
+claude-sonnet-5-5,3,90,100,57,1.2,10 (E01),93,97,70,8.7,0.0082

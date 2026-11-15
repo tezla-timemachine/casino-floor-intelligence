@@ -1,0 +1,11 @@
+You will be shown one image of a casino floor. Fill in every field of the answer form:
+
+- people_count: the number of people visible.
+- people_by_third: how many of those people are in the left, centre and right thirds of the image; the three numbers add up to people_count.
+- crowd_level: Normal, Busy or Highly occupied.
+- main_occupied_area: where in the image people are most concentrated.
+- low_activity_area: where in the image activity is lowest.
+- congestion: No visible congestion, Moderate congestion, or High concentration requiring review.
+- visible_floor_objects: the casino floor objects you can see.
+- confidence: how sure you are of the people count: low, medium or high.
+- operational_summary: 2 to 4 sentences summarising how the visible floor is being used.

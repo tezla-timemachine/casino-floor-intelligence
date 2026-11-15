@@ -1,0 +1,6 @@
+eval_id,split,file,group
+E01,test,sun_adjtrbkpcoanlcyp_jpg.rf.b675f9a42ba5884b2226e882fd37161e.jpg,crowded
+E05,test,sun_acxiguwfjwzmvrug_jpg.rf.1ef012f7380e1a3b59834d3ff53973cf.jpg,dark
+E09,test,sun_aerkymhoxuntlavm_jpg.rf.f176d129bc515acc6a657d48428185ee.jpg,empty (labelled)
+E13,test,sun_ainibgguqkkohxht_jpg.rf.ba6697ef97163dcd02e43a8aa4fc0439.jpg,close-up
+E19,test,sun_akpbowwuojcnavbt_jpg.rf.053df4c26af9a4b16ac7df496d7feea7.jpg,busy
