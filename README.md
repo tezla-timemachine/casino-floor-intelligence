@@ -2,7 +2,7 @@
 
 Week 5 project: a prototype that uses a multimodal AI model (Claude) to turn casino floor images into operations information: people counts, crowd levels, a heatmap, space use, congestion and a short summary, with human review, a dashboard and model monitoring. **A tested prototype and a starting point, not a system ready for a casino floor.**
 
-**Start here:** [`docs/casino-floor-intelligence-09-product-case-study.md`](docs/casino-floor-intelligence-09-product-case-study.md), then the brief tracker [`docs/week5-plan.md`](docs/week5-plan.md), which goes through every point of the brief.
+**Start here:** [`docs/casino-floor-intelligence-09-product-case-study.md`](docs/casino-floor-intelligence-09-product-case-study.md), then the annotated brief [`docs/week5-brief-what-we-did.docx`](docs/week5-brief-what-we-did.docx), which says what we did under every point of the brief.
 
 ## Results in brief
 
