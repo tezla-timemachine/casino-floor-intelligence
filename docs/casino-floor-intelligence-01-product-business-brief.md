@@ -1,6 +1,7 @@
 # Product / Business Brief: Casino Floor Operations Intelligence System
 
 > **Status:** v1.0, approved by the Product Owner, 13 Nov 2026 (D8). Statements marked *(assumption)* are placeholders, to confirm with a real casino before any deployment.
+> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after mentor feedback on Week 4 asked for every document to give the same final position (D27).
 > Builds on the approved use case (D4) and the dataset fact sheet (`docs/week5-dataset.md`).
 
 ---
@@ -89,6 +90,8 @@ For each casino floor image, the system:
 | Review routing | Do unsure results reach a person? |
 | Cost and speed per image | Is it affordable and quick enough? |
 
+**Value in practice, with the costs:** see the case study (09), section 4b.
+
 **In a real deployment (future, not measured here):** time to notice a busy area, the share of flags supervisors agree with, and staff moves made in response.
 
 ---
@@ -97,13 +100,13 @@ For each casino floor image, the system:
 
 | # | Assumption | Who confirms | How | Status |
 |---|---|---|---|---|
-| A1 | A multimodal model can count people in casino scenes well enough to be useful | Delivery Lead | Hand-count evaluation (Step 5) | Open. One easy image correct so far (4 of 4) |
+| A1 | A multimodal model can count people in casino scenes well enough to be useful | Delivery Lead | Hand-count evaluation (Step 5) | **Confirmed for this dataset:** 93% of counts within ±1 or 20% (D17); weaker in big crowds from high angles. A fresh test on 20 unseen images is in D26 |
 | A2 | The dataset's photos represent real casino CCTV | Delivery Lead | Inspection | **Known false:** they're web photos (fact sheet). Results must be re-tested on real CCTV |
 | A3 | Supervisors want suggestions, not automatic decisions | Product Owner | Use case review | **Confirmed (D4)** |
-| A4 | The cost per image is acceptable | Product Owner | Measure every call | Early sign: $0.0062 per image with Claude (D6) |
-| A5 | Useful output is possible without identifying anyone | Product Owner | Design and testing | Open. Prompts forbid describing individuals; to be checked |
+| A4 | The cost per image is acceptable | Product Owner | Measure every call | **Confirmed:** $0.023 per image with Opus 5.5 and prompt v3.1, within the $0.025 limit (CR-10). Continuous video needs a cheaper local counter (Step 16) |
+| A5 | Useful output is possible without identifying anyone | Product Owner | Design and testing | **Confirmed:** no descriptions of individuals in 30 summaries (D20) or in UAT (BU-12) |
 | A6 | Sending images to an online model is acceptable | Product Owner; in a real casino, privacy and legal | Approval | Yes for the public dataset. **No** for real footage without approval |
-| A7 | Crowd levels can be defined in a useful way without knowing area sizes | Product Owner | Prototype rule plus review | Open. Labelled as prototype values |
+| A7 | Crowd levels can be defined in a useful way without knowing area sizes | Product Owner | Prototype rule plus review | **Partly:** the prototype rule matches the hand-count level on 93% of images (D18); real use needs area capacities and thresholds per zone |
 
 ---
 

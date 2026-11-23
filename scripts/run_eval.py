@@ -2,6 +2,7 @@
 
     .venv/bin/python scripts/run_eval.py --prompts v1 v2 v3 --models claude-opus-5-5 claude-sonnet-5-5 --name prompts
     .venv/bin/python scripts/run_eval.py --prompts v3 --models claude-opus-5-5 claude-sonnet-5-5 --repeats 2 --name repeat
+    .venv/bin/python scripts/run_eval.py --set fresh --prompts v3.1 --models claude-opus-5-5 --repeats 3 --name fresh
 
 Each model x prompt (x repeat) is one run, saved to data/results/runs/<run>.jsonl as answers arrive; every call
 is added to data/results/call_log.csv. Stops starting new calls once this session's spend passes --cap dollars.
@@ -36,10 +37,11 @@ def main():
     ap.add_argument("--effort", default="medium")
     ap.add_argument("--cap", type=float, default=5.0)
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--set", default="eval", choices=["eval", "fresh"], help="eval: the 30 evaluation images; fresh: the 20 unseen images (D26)")
     args = ap.parse_args()
     load_dotenv(pl.ROOT / ".env")
     client = anthropic.Anthropic()
-    rows = list(csv.DictReader(open(pl.ROOT / "evals" / "eval_set.csv")))
+    rows = list(csv.DictReader(open(pl.ROOT / "evals" / f"{args.set}_set.csv")))
     for r in rows:
         r["group"] = r["chosen_as"]
 

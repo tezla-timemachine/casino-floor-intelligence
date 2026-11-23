@@ -1,8 +1,8 @@
 # Business Requirements Document: Casino Floor Operations Intelligence System (prototype)
 
-> **Status:** v1.1, 14 Nov 2026 (cost limit changed, CR-10). Baseline v1.0 approved by the Product Owner, 13 Nov 2026 (D8). Changes from here go through the change control log (10).
+> **Status:** v1.2, 23 Nov 2026 (targets filled in from D13 and D18; space use by 3×3 grid, CR-12). v1.1, 14 Nov 2026: cost limit changed (CR-10). Baseline v1.0 approved by the Product Owner, 13 Nov 2026 (D8). Changes from here go through the change control log (10).
 > Sources: Product brief (01), approved use case (D4), dataset fact sheet (`docs/week5-dataset.md`), the Week 5 brief.
-> Targets marked **[set after first results]** are filled in once Phase 3 has measured the model (D4).
+> The targets first marked "set after first results" were set from the Phase 3 and 4 results (D13, D18), in v1.2.
 
 ---
 
@@ -55,7 +55,7 @@ Turn casino floor images into operations information that helps a floor supervis
 | **FR-05 Reject bad answers** | An answer that doesn't fit the format shall be retried once, then recorded as failed. It is never guessed or silently dropped | 4, 17 | Must |
 | **FR-06 People count** | The system shall show the model's estimated people count, labelled "estimate" | 3, 5 | Must |
 | **FR-07 Crowd level** | The system shall give a prototype crowd level (Normal, Busy, Highly occupied) using a **written rule** with documented thresholds, labelled "prototype" | 6 | Must |
-| **FR-08 Space use** | The system shall name the busiest and quietest parts of the image (for example left, centre, right), and show each part's share of the people. It shall not give percentages of capacity | 8 | Must |
+| **FR-08 Space use** | The system shall name the busiest and quietest parts of the image (a 3×3 grid: top, middle, bottom × left, centre, right; CR-12), and show each part's share of the people. It shall not give percentages of capacity | 8 | Must |
 | **FR-09 Heatmap** | The system shall show a heatmap over the image: warm where people are concentrated, cool where it's empty, with a legend | 7 | Must |
 | **FR-10 Congestion** | The system shall give one of: No visible congestion / Moderate congestion / High concentration requiring review, using a written rule, labelled "prototype". It shall never call an area "unsafe" | 9 | Must |
 | **FR-11 Floor objects** | The system shall list the casino floor objects seen (for example tables, slot machines, chairs) | 3, 4 | Should |
@@ -79,11 +79,11 @@ How each is met technically goes in the architecture document (03). Pass marks a
 
 | Area | Requirement |
 |---|---|
-| **Counting accuracy** | The average counting error against hand counts, on a set of about 30 images, **reported separately** for empty, quiet, busy and dark images. Target: **[set after first results]** |
+| **Counting accuracy** | The average counting error against hand counts, on a set of about 30 images, **reported separately** for empty, quiet, busy and dark images. Target: **at least 85% of counts within ±1 or 20%; average miss 3 people or fewer; 100% within on 0–5 people; at least 75% within on crowds of 16+** (D13) |
 | **Format reliability** | 100% of answers usable after one retry. Failures are logged, never hidden |
 | **No unsupported statements** | Summaries and observations say nothing that isn't visible in the image or in the structured fields. Target: **none**, checked by hand on the evaluation set |
-| **Consistency** | The same image, run three times, gives a similar count and the same crowd level. Target: **[set after first results]** |
-| **Crowd-level agreement** | The crowd level from the model's count matches the level our rule gives from the hand count. Target: **[set after first results]** |
+| **Consistency** | The same image, run three times, gives a similar count and the same crowd level. Target: **at least 85% of images whose 3 counts all fall within ±1 or 20% of each other** (D13). Reported alongside, not a target: the share giving exactly the same count all 3 times |
+| **Crowd-level agreement** | The crowd level from the model's count matches the level our rule gives from the hand count. Target: **at least 85% of images** (D18) [was: set after first results]** |
 | **Honest confidence** | Low-confidence answers should be wrong more often than high-confidence ones. If not, confidence alone can't trigger review |
 | **Privacy in outputs** | No description of individuals: no appearance, age, gender or identity. Target: **none**, checked by hand |
 | **Declines handled** | If the model declines an image, the result is recorded as such, and is never guessed |
@@ -164,4 +164,5 @@ How each is met technically goes in the architecture document (03). Pass marks a
 
 | Version | Date | Change | Change request |
 |---|---|---|---|
+| v1.2 | 23 Nov 2026 | Targets for counting, consistency and crowd level filled in as set in D13 and D18; space use described by the 3×3 grid | D13, D18, CR-12 (D27) |
 | v1.1 | 14 Nov 2026 | Cost limit per image $0.01 → $0.025, after the Phase 3 evaluation chose Opus 5.5 + prompt v3 for its accuracy in crowds | CR-10 (D12) |

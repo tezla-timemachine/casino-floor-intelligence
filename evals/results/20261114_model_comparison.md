@@ -16,7 +16,7 @@ Same 30 hand-counted evaluation images. Claude Opus 5.5 with the product prompt 
 | People count accuracy | Good, including crowds | Fine on small scenes (92% within on 0–5 people); fails on crowds |
 | Crowd classification | 93% agree (rule D14 on its count) | 60% agree |
 | Operational observations | Fills every field: busiest and quietest areas, objects, summary | Couldn't produce them reliably |
-| Consistency | 87% of images agree across 3 runs (Phase 3) | Not repeated: temperature 0 gives the same answer each time, so repeats add nothing |
+| Consistency | 87% of images: the 3 counts agree within ±1 or 20%; 63% give exactly the same count (Phase 3, prompt v3) | Not repeated: temperature 0 gives the same answer each time, so repeats add nothing |
 | Response time | 9 s | 7.5 s (count only) to over 2 minutes (full form) |
 | Cost | $0.023 per image | Free (runs on this Mac) |
 | Structured output reliability | 100% (30 of 30) | 0% on the full form (0 of 5); 73% usable on the one-number form |

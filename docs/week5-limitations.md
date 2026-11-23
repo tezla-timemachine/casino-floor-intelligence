@@ -20,7 +20,7 @@
 |---|---|---|
 | **Small evaluation set** | 30 images | Shows patterns, not precise rates |
 | **One person's counts** | Tez counted all 30; the planned re-count of 5 images hasn't been done yet | Some hand counts are uncertain, especially big crowds (E01 range 180–250; E03 40–75) |
-| **v3.1 consistency not re-measured** | Measured on v3 (87%), not repeated on v3.1 | Small risk that the grid version varies more |
+| **Accuracy on unseen images not hand-checked** | The fresh test (D26) ran 20 new images 3 times: consistent (95%) and reliable, but without hand counts | Counting accuracy is proven only on the 30 evaluation images, which also chose the prompt |
 | **Summaries judged by one reader** | 30 summaries checked by hand | Another reader might judge borderline cases differently |
 
 ## 3. The model

@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.8.0] — 2026-11-23 — Feedback fixes
+- Fresh test on 20 unseen images, 3 runs each (D26): consistency 95% on prompt v3.1. Found and fixed DF-11: results lacked the model name, so monitoring ignored new calls.
+- Documents 01–10 brought into line with the final results (D27); case study gains the decision it supports and its value in money.
+
 ## [0.7.0] — 2026-11-15 — Write-up
 - Video design (Step 16), with each result now carrying a camera name and time (FR-22).
 - Product decisions (Step 18), risk register 06 (Step 19), privacy note (Step 20), limitations (Step 21).

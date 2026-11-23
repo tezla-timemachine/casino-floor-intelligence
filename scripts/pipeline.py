@@ -191,7 +191,9 @@ def analyse(client, row: dict, prompt_name: str, prompt: str, run: str, settings
     settings = settings or CLAUDE
     record = {"run": run, "time": dt.datetime.now().isoformat(timespec="seconds"), "split": row["split"], "file": row["file"],
               "group": row.get("group", ""), "eval_id": row.get("eval_id", ""), "path": row.get("path", ""),
-              "camera": row.get("camera", ""), "captured_at": row.get("captured_at", ""),   # video-ready (FR-22): a frame is an image + camera + time "model": settings["model"], "effort": settings["effort"],
+              # video-ready (FR-22): a frame is an image + camera + time
+              "camera": row.get("camera", ""), "captured_at": row.get("captured_at", ""),
+              "model": settings["model"], "effort": settings["effort"],
               "prompt_version": prompt_name, "status": "", "problems": "",
               "attempts": 0, "seconds": 0.0, "input_tokens": 0, "output_tokens": 0, "cost_usd": 0.0}
     try:

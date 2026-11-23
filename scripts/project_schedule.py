@@ -15,7 +15,7 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
 DOCS = Path(__file__).resolve().parents[1] / "docs"
-TODAY = dt.date(2026, 11, 13)
+TODAY = dt.date(2026, 11, 23)
 COLOURS = {"Done": "#2e7d32", "In progress": "#2e75b6", "Planned": "#9fb8d0"}
 
 # (id, phase, task, start, end, status, depends on, brief steps / documents)
@@ -34,8 +34,9 @@ TASKS = [
     ("T12", "5 Compare and learn", "Error analysis", "2026-11-14", "2026-11-14", "Done", "T09 T11", "Step 13"),
     ("T13", "6 Make it a product", "Human review, dashboard, monitoring", "2026-11-14", "2026-11-14", "Done", "T10 T12", "Steps 14, 15, 17"),
     ("T14", "6 Make it a product", "User acceptance testing (08)", "2026-11-15", "2026-11-15", "Done", "T13", "08"),
-    ("T15", "7 Write it up", "Video design, privacy, limitations, risks (06)", "2026-11-21", "2026-11-21", "Planned", "T13", "Steps 16, 19-21; 06"),
-    ("T16", "7 Write it up", "Case study (09), README, handover, GitHub", "2026-11-21", "2026-11-22", "Planned", "T14 T15", "Step 22; 09"),
+    ("T15", "7 Write it up", "Video design, privacy, limitations, risks (06)", "2026-11-15", "2026-11-15", "Done", "T13", "Steps 16, 19-21; 06"),
+    ("T16", "7 Write it up", "Case study (09), README, handover, GitHub", "2026-11-15", "2026-11-15", "Done", "T14 T15", "Step 22; 09"),
+    ("T17", "8 Feedback fixes", "Fresh test on 20 unseen images; documents in line; business value", "2026-11-23", "2026-11-23", "In progress", "T16", "D26, D27"),
 ]
 
 

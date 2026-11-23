@@ -62,7 +62,7 @@ SYSTEM = [  # id, type, area, scenario, test data, steps, expected, pass criteri
     ("ST-13", "Functional", "FR-13 Confidence and review flag", "Triggers D21", "30 images", "Run review rules", "Flag with reason", "Low-confidence and unusual images flagged", "10 of 30 flagged, reasons shown", "Pass"),
     ("ST-14", "Functional", "FR-14 Human review", "Mark correct or incorrect, saved", "Review queue", "Tez marks items (BU-09)", "Decision saved with note", "Saved to reviews.csv", "10 decisions saved (15 Nov); shown in Monitoring", "Pass"),
     ("ST-15", "Functional", "FR-15 Dashboard", "All 8 items and history", "Dashboard", "Open all 4 pages", "Image, count, status, heatmap, congestion, summary, confidence, review flag, history", "All present, no errors", "All present; no server errors (14 Nov)", "Pass"),
-    ("ST-16", "Functional", "FR-16 Monitoring log", "Every call logged", "call_log.csv", "Inspect the log", "Model, prompt, time, cost, status, confidence", "Every call present", "406 calls logged (to 15 Nov), including 30 failures with the API's message", "Pass"),
+    ("ST-16", "Functional", "FR-16 Monitoring log", "Every call logged", "call_log.csv", "Inspect the log", "Model, prompt, time, cost, status, confidence", "Every call present", "466 calls logged (to 23 Nov), including 30 failures with the API's message. The 60 calls of 23 Nov first lacked the model name (DF-11, fixed and repaired)", "Pass"),
     ("ST-17", "Functional", "FR-17 Monitoring alerts", "Alerts against D22 limits", "Last 50 calls", "Open Monitoring", "Alerts fire when limits are passed", "Real problems flagged", "2 alerts: failed requests 40% (credit outage); average miss 3.8", "Pass"),
     ("ST-18", "Functional", "FR-18 Prompt versions", "Numbered prompts recorded with every result", "prompts/ folder", "Inspect results", "v1–v3.1 kept; version on every record", "Present", "v1, v2, v3, v3.1 (+ trial-1, m-count); version on every record", "Pass"),
     ("ST-19", "Functional", "FR-19 Counting evaluation", "The brief's counting table", "30 images", "score_eval.py", "Actual, model, difference, result; average error", "Table produced", "Phase 3 summary, section 5", "Pass"),
@@ -72,7 +72,7 @@ SYSTEM = [  # id, type, area, scenario, test data, steps, expected, pass criteri
     ("AQ-01", "AI", "Counting accuracy (pass marks D13)", "Hand counts", "30 images, v3.1", "score_eval.py", "Within ≥85%; average miss ≤3; small 100%; crowds ≥75%", "All four marks", "93%; 3.8 ✗; 100%; 89%: average miss fails because of E01 (DF-01)", "Fail"),
     ("AQ-02", "AI", "Format reliability", "All answers usable", "30 images", "Check statuses", "100% after one retry", "100%", "30 of 30", "Pass"),
     ("AQ-03", "AI", "No unsupported statements", "Read every summary", "30 summaries", "Hand check", "None", "None", "None; 2 borderline accepted (D20)", "Pass"),
-    ("AQ-04", "AI", "Consistency (pass mark ≥85%)", "Same image 3 times", "30 images × 3", "Repeat runs", "≥85% of images agree", "≥85%", "87% on prompt v3; v3.1 not yet repeated", "Partly"),
+    ("AQ-04", "AI", "Consistency (pass mark ≥85%)", "Same image 3 times", "30 images × 3", "Repeat runs", "≥85% of images agree", "≥85%", "v3: 87% (30 evaluation images). v3.1: 95% (19 of 20 fresh, unseen images, 23 Nov, D26)", "Pass"),
     ("AQ-05", "AI", "Crowd-level agreement (pass mark ≥85%)", "Rule on model count against hand count", "30 images", "score_eval.py", "≥85%", "≥85%", "93%", "Pass"),
     ("AQ-06", "AI", "Honest confidence", "Low confidence misses more", "90 answers", "Group by confidence", "Low > medium > high error", "Order holds", "High: 0 misses; low: all the big misses", "Pass"),
     ("AQ-07", "AI", "Privacy in outputs", "No individuals described", "30 summaries", "Hand check", "None", "None", "None (D20)", "Pass"),
@@ -109,6 +109,7 @@ DEFECTS = [  # id, found in, severity, description, suggested fix, status
     ("DF-07", "ST-22", "Low", "Video-ready input (time, camera name) not built", "Built with the video design (15 Nov)", "Fixed"),
     ("DF-09", "BU-10", "High", "An uploaded image couldn't be shown after analysis: its saved result didn't keep the image's location", "Results now keep the full image path; the saved result repaired", "Fixed"),
     ("DF-10", "BU-10", "Low", "Heatmap squashed a wide photo into a square (the dataset images are all square)", "Heatmap keeps the photo's shape", "Fixed"),
+    ("DF-11", "Fresh test (D26)", "High", "Since the video-ready change (15 Nov), results were saved without the model name and effort, so monitoring silently left new calls out of its window", "Fields restored in the pipeline; the 60 affected log rows and records repaired; monitoring re-checked (23 Nov)", "Fixed"),
     ("DF-08", "BU-09", "Medium", "Review can become rubber-stamping: 10 of 10 marked Correct, later ones in about 2 s each, no notes", "Show the reviewer what to check; require a note when confirming a low-confidence result; track time per review in monitoring; risk register (Step 19)", "Open")
 ]
 

@@ -1,6 +1,7 @@
 # AI Architecture & Decision Log: Casino Floor Operations Intelligence System
 
 > **Status:** v1.0, approved 13 Nov 2026 (D9). Section 1–2 describe the design before it's built; they're updated as each part is built and tested.
+> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after mentor feedback on Week 4 asked for every document to give the same final position (D27).
 > Requirements referred to (FR-…) are in the BRD (02). This document is the **single decision log** for Week 5 (D7).
 
 ---
@@ -21,14 +22,14 @@
 |---|---|---|---|
 | Image source | The dataset images now. Later, video frames with a time and camera name | Files in `data/raw/casino-v3` | FR-01, FR-22 |
 | Image check | Confirms the file opens and is a supported type and size, before anything is sent | Python, Pillow | FR-02 |
-| Prompt library | The instructions given to the model, as numbered versions (v1 simple, v2 strict format, v3 strict format plus operational rules) | Text files in `prompts/` | FR-18 |
-| Model adapter | Sends the image and prompt to the chosen model, and records time, tokens and cost. The same interface for both models, so either can be swapped in | Python; Anthropic SDK for Claude; local runtime for Moondream (confirmed when installed) | FR-03, FR-16 |
+| Prompt library | The instructions given to the model, as numbered versions (v1 simple, v2 strict format, v3 strict format plus operational rules, **v3.1 adds the 3×3 grid: the product prompt**, D17) | Text files in `prompts/` | FR-18 |
+| Model adapter | Sends the image and prompt to the chosen model, and records time, tokens and cost. The same interface for both models, so either can be swapped in | Python; Anthropic SDK for Claude; Ollama for Moondream (D19) | FR-03, FR-16 |
 | Claude Opus 5.5 | The main model, online. Answers using **structured output**: the API forces the answer into our fixed form | Anthropic API (D5, D6) | FR-03, FR-04 |
 | Moondream | The comparison model, on this Mac, free per image. It has no forced form, so its answers rely more on the format check | Small open vision model (D5) | FR-20 |
 | Answer check | Checks every field is present and valid. Retries once, then records a failure. Never guesses | JSON schema check | FR-04, FR-05 |
 | Operations rules | Crowd level (Normal / Busy / Highly occupied), congestion (three statuses), space use (people per part of the image). All written rules, labelled prototype | Python | FR-07, FR-08, FR-10 |
-| Heatmap | Turns where people are into a warm-to-cool overlay on the image. Where the positions come from is Decision E (open) | Pillow, numpy | FR-09 |
-| Review rules | Flags results for a person: low confidence, an unusual count, or the models disagree. Triggers are Decision G (open) | Python | FR-13 |
+| Heatmap | Turns where people are into a warm-to-cool overlay on the image. Positions come from Claude's count for each square of a 3×3 grid (D15) | Pillow, numpy | FR-09 |
+| Review rules | Flags results for a person: low confidence, high concentration, not a casino floor, a failed or rejected answer, or a random 1-in-10 spot-check (D21) | Python | FR-13 |
 | Results and logs | Every answer, every call (model, prompt version, time, cost, errors) and every review decision | CSV / JSON files in `data/results/` | FR-16 |
 | Dashboard | What the supervisor and reviewer use: image, heatmap, count, levels, summary, confidence, review flag, history, monitoring | Streamlit (installed in Phase 6, with approval) | FR-14, FR-15, FR-17 |
 | Evaluation | Hand counts, the counting table, prompt and model comparisons, error analysis | `evals/` folder, Python | FR-19, FR-20 |
@@ -53,7 +54,7 @@
 |---|---|
 | Counting accuracy | Evaluation against hand counts (D3), reported by group: empty, quiet, busy, dark |
 | Format reliability | Structured output on Claude; a schema check and one retry for both models; failures logged |
-| No unsupported statements | Prompt v3 forbids them. The summary is written from the fields only. Checked by hand on the evaluation set |
+| No unsupported statements | Prompts v3 and v3.1 forbid them. The summary is written from the fields only. Checked by hand on the evaluation set |
 | Consistency | Each evaluation image run three times; the spread is reported |
 | Crowd-level agreement | The same written rule applied to the model's count and to the hand count |
 | Honest confidence | Accuracy compared across the low, medium and high confidence groups |
@@ -94,7 +95,10 @@ Every decision: what, why, and who decided. The experiments behind them, run by 
 | D24 | 15 Nov 2026 | Video design (Step 16), product decisions (Step 18) and risk register (06, Step 19) approved. Three risks stay High after protections: R-07 (a real casino differs), R-10 (trusting without checking, seen in UAT), R-09 (privacy of footage) | Each risk carries evidence from the evaluation and UAT; real deployment conditions are in the product decisions, section 7 | Tez, 15 Nov 2026 |
 | D25 | 15 Nov 2026 | Privacy and responsible use (Step 20) and limitations (Step 21) approved. The proposed real-use retention (frames deleted after analysis; flagged images up to 7 days; counts 90 days; logs 1 year; no faces stored) is for the casino to confirm | The prototype runs on public photos; a real deployment needs privacy, legal, security, operations and surveillance approval first | Tez, 15 Nov 2026 |
 
-**Open decisions:** E (heatmap positions), D (crowd thresholds), F (congestion rule), G (review triggers), H (dashboard and GitHub). See the brief tracker for when each is due.
+| D26 | 23 Nov 2026 | **Fresh test on 20 unseen images** (F01–F20): never sent to any model, hand-counted by Tez first, then run once on the product setting. Same mix of groups as the evaluation set (`scripts/make_fresh_set.py`, seed 26). Results reported whatever they show | Mentor feedback on Week 4 asked for real validation on new data. The 30 evaluation images also chose the prompt (v3 → v3.1), so they're no longer a fully fair test. Still web photos, not CCTV. **Changed the same day:** Tez chose an automatic test instead of hand counts, so accuracy isn't scored. **Result:** 60 of 60 in the form; consistency 95% within the margin (pass); crowd level the same in all 20; 8.9 s and $0.0241 on average; low confidence 32%, over the 30% alert. Found and fixed bug DF-11 (monitoring ignored new calls). Write-up: `evals/results/20261123_fresh_test.md` | Product Owner (Tez), 23 Nov 2026 |
+| D27 | 23 Nov 2026 | **Documents brought into line at close:** every document gives the same final figures and statuses (01 assumptions, 02 targets, 03 components, 04 phases, 05 schedule, 07 pass marks, 10 current versions). Consistency is reported as two named measures: within the margin across 3 runs (87%) and exactly the same count (63%). The case study gains the decision the product supports and its value in money | Mentor feedback on Week 4: documents inconsistent, business value missing | Product Owner (Tez), 23 Nov 2026 |
+
+**Open decisions:** none. Decisions D to H were all made (D14, D15, D16, D21; dashboard D21–D23; GitHub public, 15 Nov).
 
 ---
 

@@ -8,13 +8,13 @@
 
 | Item | Why it matters | Current version |
 |---|---|---|
-| **Model** (name and version) | Different models give different answers | Claude Opus 5.5 (`claude-opus-5-5`); Moondream (not yet installed) |
-| **Prompt** | The wording changes what the model sees and says | Connection-test prompt only; v1–v3 to come (FR-18) |
-| **Answer form** (the schema) | Changes what can be stored, shown and compared | Draft (03, section 2.1) |
-| **Crowd and congestion thresholds** | Change what's flagged | Not set yet (Decisions D, F) |
-| **Review triggers** | Change what reaches a person | Not set yet (Decision G) |
-| **Evaluation set and labelling rules** | Change what "correct" means | Labelling guide v1; set not chosen yet |
-| **Requirements** (02) and pass marks (07) | Change what's agreed | BRD v1.0 (D8) |
+| **Model** (name and version) | Different models give different answers | Claude Opus 5.5 (`claude-opus-5-5`), the product model; Moondream through Ollama, comparison only (D19) |
+| **Prompt** | The wording changes what the model sees and says | **v3.1** (CR-14); v1, v2, v3 kept in `prompts/` |
+| **Answer form** (the schema) | Changes what can be stored, shown and compared | Form v2, with the 3×3 grid (CR-12) |
+| **Crowd and congestion thresholds** | Change what's flagged | Crowd: 0–10 / 11–30 / 31+ (D14); congestion: 6–14 / 15+ in a square (CR-13) |
+| **Review triggers** | Change what reaches a person | Five triggers (CR-16) |
+| **Evaluation set and labelling rules** | Change what "correct" means | 30-image evaluation set and labelling guide (D10, CR-07, CR-08); 20-image fresh set (D26) |
+| **Requirements** (02) and pass marks (07) | Change what's agreed | BRD v1.2; pass marks set (D13, D18) |
 | **Model settings** (effort, maximum length, fallback) | Change quality, cost and speed | Effort medium; fallback on (D6) |
 
 Routine edits that don't change results (typos, layout, refactoring code without changing output) don't need a change request.

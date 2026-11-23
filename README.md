@@ -14,7 +14,8 @@ Week 5 project: a prototype that uses a multimodal AI model (Claude) to turn cas
 | Answers in the form | 100% |
 | Cost and speed | $0.023 and 9 seconds per image |
 | Business UAT | 12 of 12 passed |
-| Known gap | Average miss 3.8 people (pass mark 3), from one 200-person image |
+| Fresh test, 20 unseen images × 3 runs (no hand counts) | 60 of 60 in the form; 95% consistent; found and fixed a monitoring bug (D26) |
+| Known gaps | Average miss 3.8 people (pass mark 3), from one 200-person image. Accuracy on unseen images not yet hand-checked |
 
 ## Documents
 

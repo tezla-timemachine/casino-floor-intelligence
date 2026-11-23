@@ -1,6 +1,7 @@
 # Project Plan: Casino Floor Operations Intelligence System
 
 > **Status:** v1.0, approved 13 Nov 2026 (D9). Dates after today are a **proposal**, to fit your course deadline.
+> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after mentor feedback on Week 4 asked for every document to give the same final position (D27). All seven phases finished on 15 Nov 2026, ahead of the proposed dates.
 > The bullet-by-bullet tracker of the brief is `docs/week5-plan.md`. The task list is `docs/casino-floor-intelligence-05-project-schedule.csv`, drawn by `scripts/project_schedule.py`.
 
 ---
@@ -14,7 +15,7 @@ A prototype that turns casino floor images into operations information, built an
 | Start | 13 Nov 2026 |
 | Proposed finish | 22 Nov 2026 |
 | Done so far | Phase 1 (understand the dataset and use case); Phase 2 groundwork (models chosen, environment, connection test, brief and requirements approved) |
-| Budget | API spend under $10 (02). Spent so far: $0.006 |
+| Budget | API spend under $10 (02). Spent: $6.64, including the fresh test (D26, $1.45) |
 | Team | Tez (Product Owner and Delivery Lead) with Claude (build and documents) |
 
 ---
@@ -24,12 +25,12 @@ A prototype that turns casino floor images into operations information, built an
 | Phase | Brief steps | Deliverables | Sign-off |
 |---|---|---|---|
 | **1. Understand** | 1–2 | Dataset fact sheet; use case (now in 01 and 02) | **Done** (D3, D4) |
-| **2. First pipeline** | 3–4 | Models chosen (D5, D6); environment; documents 01–05, 07 and 10; pipeline v1 with structured output, tried on 5 images | In progress |
-| **3. Measure counting** | 5, 12 | About 30 hand-counted evaluation images; counting table and error; prompts v1–v3 compared; counting target set (Q1) | |
-| **4. Operations insights** | 6–10 | Crowd-level rule and thresholds; heatmap; space use; congestion rule; management summary | |
-| **5. Compare and learn** | 11, 13 | Moondream installed; model comparison table; error analysis | |
-| **6. Make it a product** | 14, 15, 17 | Human review; dashboard; monitoring and alerts; UAT run (08) | |
-| **7. Write it up** | 16, 18–22 | Video design; product decisions; risk register (06); privacy note; limitations; case study (09); README, CHANGELOG, HANDOVER; GitHub; annotated brief | |
+| **2. First pipeline** | 3–4 | Models chosen (D5, D6); environment; documents 01–05, 07 and 10; pipeline v1 with structured output, tried on 5 images | **Done** (D8, D9, D11) |
+| **3. Measure counting** | 5, 12 | About 30 hand-counted evaluation images; counting table and error; prompts v1–v3 compared; counting target set (Q1) | **Done** (D12, D13) |
+| **4. Operations insights** | 6–10 | Crowd-level rule and thresholds; heatmap; space use; congestion rule; management summary | **Done** (D14 to D18) |
+| **5. Compare and learn** | 11, 13 | Moondream installed; model comparison table; error analysis | **Done** (D19, D20) |
+| **6. Make it a product** | 14, 15, 17 | Human review; dashboard; monitoring and alerts; UAT run (08) | **Done** (D21 to D23) |
+| **7. Write it up** | 16, 18–22 | Video design; product decisions; risk register (06); privacy note; limitations; case study (09); README, CHANGELOG, HANDOVER; GitHub; annotated brief | **Done** (D24, D25). Feedback fixes: D26, D27 |
 
 ---
 

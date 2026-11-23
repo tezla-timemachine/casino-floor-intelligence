@@ -29,6 +29,26 @@ A **multimodal model** (one that reads images) counts people, says where they ar
 
 All 25 decisions: decision log (03); all 18 experiments: `evals/experiment-log.md`.
 
+## 4b. The decision it supports, and what it's worth
+
+**The decision:** at each check, **where should the supervisor look, or send someone, first?** And which results must a person check before anyone acts on them? The product ranks the floor (busiest areas, congestion flags) and routes uncertain results to review. It never makes the staffing call (D4).
+
+**What it costs to run (measured):** $0.023 and 9 seconds per image.
+
+| Checks per camera | Per camera per day | 50 cameras per day | 50 cameras per year |
+|---|---|---|---|
+| Every 15 minutes | $2.20 | $110 | about $40,000 |
+| Every 5 minutes | $6.60 | $331 | about $121,000 |
+
+**Against the alternative** *(assumption, to confirm with a real casino)*: one extra person watching screens around the clock, at an assumed $30 an hour, costs about $720 a day. A first look at 50 cameras every 15 minutes costs about $110 a day, roughly a sixth. It doesn't replace the supervisor; it tells them where to look.
+
+**The human cost it adds:** on the test images the review rules sent **10 of 30 results** to a person (low confidence 6, high concentration 5, not a casino floor 4, random spot-check 3; some images have more than one reason). That share is high because the test set is rich in crowds; a quiet real floor would flag fewer. Each review needs a real look, not a click (R-10).
+
+**The value on the floor is not proven yet.** What makes it possible is measured: 93% of counts within ±1 or 20%, and every big miss flagged for review. What a pilot on real CCTV must measure:
+- **time to notice** a busy area, with and without the product;
+- the **share of flags supervisors agree with**;
+- **what they did** about them (a table opened, a host sent), and whether queues or idle tables went down.
+
 ## 5. Architecture
 
 Image → image check → numbered prompt → model adapter (Claude online, Moondream on the Mac) → answer check → operations rules (crowd level, congestion, space use) → heatmap → review rules → results and logs → dashboard (floor view, history, review queue, monitoring). Only the call to Claude leaves the computer (03, section 1).
@@ -46,6 +66,7 @@ Image → image check → numbered prompt → model adapter (Claude online, Moon
 - **Three prompts, two Claude models, then Moondream;** each image run 3 times for consistency.
 - **Pass marks set from the results** (D13, D18) and turned into monitoring alerts.
 - **Final:** 93% of counts within ±1 or 20%; 89% on crowds; crowd level right on 93%; heatmaps matched all 30 photos; no unsupported statements or descriptions of people in 30 summaries; **12 of 12 business UAT tests passed**.
+- **Fresh test on 20 unseen images** (D26), because the 30 evaluation images also chose the prompt: each run 3 times, no hand counts. 60 of 60 in the form; the 3 counts agreed within the margin on 95%; the crowd level never changed. Accuracy on unseen images is still unproven.
 
 ## 8. What failed
 
@@ -56,6 +77,7 @@ Image → image check → numbered prompt → model adapter (Claude online, Moon
 - **The API ran out of credit:** 30 calls failed.
 - **UAT bugs:** uploaded images couldn't be shown, and the heatmap squashed wide photos.
 - **Review rubber-stamping:** 10 of 10 reviews marked Correct, most in about 2 seconds.
+- **A silent monitoring bug (DF-11),** found by the fresh test: since 15 Nov, results were saved without the model name, so monitoring quietly ignored every new call.
 
 ## 9. What changed because of it
 
@@ -68,6 +90,7 @@ Image → image check → numbered prompt → model adapter (Claude online, Moon
 | Credit outage | Failures logged with the reason; monitoring alert on failed requests |
 | UAT bugs | Results keep the image path; heatmap keeps the photo's shape |
 | Rubber-stamping | Recorded as a High risk (R-10), with fixes proposed |
+| Monitoring ignored new calls | Fields restored and logs repaired; next step: alert when no new calls arrive |
 
 ## 10. Results
 
@@ -80,7 +103,8 @@ Image → image check → numbered prompt → model adapter (Claude online, Moon
 | Answers in the form | **100%** |
 | Cost and speed | **$0.023 and 9 s** per image |
 | Business UAT | **12 of 12 passed** |
-| Total API spend | **$5.19** of a $10 budget |
+| Consistency on unseen images (fresh test) | **95%** (pass mark 85%) |
+| Total API spend | **$6.64** of a $10 budget |
 
 ## 11. Next iteration
 
@@ -98,3 +122,4 @@ Image → image check → numbered prompt → model adapter (Claude online, Moon
 - **Use the model for what it's good at, and rules for the rest.** Counting by AI, levels by written rules.
 - **Pick the model on the hardest case, not the average.** Two models looked the same on quiet scenes; only crowds told them apart.
 - **Watch the humans in the loop, too.** Review is a safety net only if people really check.
+- **Test on data the project hasn't touched.** The fresh images found a bug that every earlier test had missed.

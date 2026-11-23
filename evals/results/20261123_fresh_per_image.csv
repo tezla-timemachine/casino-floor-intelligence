@@ -1,0 +1,21 @@
+eval_id,group,labelled,counts,spread,within_margin,same_count,same_level,same_congestion,level,confidence,below_labels,reviewed_runs
+F01,crowded,15,78 / 88 / 86,10,True,False,True,True,Highly occupied / Highly occupied / Highly occupied,low / low / low,False,3
+F02,crowded,14,65 / 65 / 63,2,True,False,True,True,Highly occupied / Highly occupied / Highly occupied,low / low / low,False,3
+F03,crowded,14,110 / 110 / 119,9,True,False,True,True,Highly occupied / Highly occupied / Highly occupied,low / low / low,False,3
+F04,crowded,12,106 / 104 / 114,10,True,False,True,True,Highly occupied / Highly occupied / Highly occupied,low / low / low,False,3
+F05,dark,2,11 / 11 / 11,0,True,True,True,False,Busy / Busy / Busy,medium / low / medium,False,2
+F06,dark,0,0 / 0 / 0,0,True,True,True,True,Normal / Normal / Normal,medium / medium / medium,False,0
+F07,dark,2,3 / 3 / 3,0,True,True,True,True,Normal / Normal / Normal,medium / medium / medium,False,0
+F08,empty (labelled),0,0 / 0 / 0,0,True,True,True,True,Normal / Normal / Normal,high / high / high,False,0
+F09,empty (labelled),0,2 / 2 / 2,0,True,True,True,True,Normal / Normal / Normal,low / low / low,False,3
+F10,empty (labelled),0,0 / 0 / 0,0,True,True,True,True,Normal / Normal / Normal,high / high / high,False,1
+F11,busy,6,58 / 46 / 42,16,False,False,True,True,Highly occupied / Highly occupied / Highly occupied,low / low / low,False,3
+F12,busy,10,11 / 11 / 11,0,True,True,True,False,Busy / Busy / Busy,medium / medium / medium,False,1
+F13,busy,10,26 / 29 / 26,3,True,False,True,True,Busy / Busy / Busy,medium / medium / medium,False,1
+F14,busy,7,8 / 8 / 8,0,True,True,True,True,Normal / Normal / Normal,medium / medium / medium,False,1
+F15,busy,6,10 / 10 / 10,0,True,True,True,True,Normal / Normal / Normal,medium / medium / medium,False,0
+F16,quiet,3,4 / 4 / 4,0,True,True,True,True,Normal / Normal / Normal,high / high / high,False,0
+F17,quiet,1,7 / 7 / 7,0,True,True,True,True,Normal / Normal / Normal,high / high / medium,False,0
+F18,quiet,2,5 / 5 / 5,0,True,True,True,True,Normal / Normal / Normal,medium / medium / medium,False,0
+F19,quiet,4,4 / 4 / 4,0,True,True,True,True,Normal / Normal / Normal,high / high / medium,False,0
+F20,quiet,4,6 / 7 / 7,1,True,False,True,True,Normal / Normal / Normal,medium / medium / medium,False,0

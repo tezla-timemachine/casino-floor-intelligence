@@ -10,7 +10,8 @@ A Week 5 prototype: Claude Opus 5.5 reads casino floor images and returns a stru
 ## 3. Status
 - All 7 phases done; business UAT 12 of 12 passed (D23).
 - Product setting: `claude-opus-5-5`, effort medium, prompt `v3.1`, answer form v2.
-- API spend: $5.19 of $10.
+- API spend: $6.64 of $10.
+- Fresh test on 20 unseen images (D26): consistent and reliable; found and fixed DF-11.
 
 ## 4. How it works (short)
 `scripts/pipeline.py` (check image → call model → check answer, retry once, log) → `scripts/insights.py` (rules, heatmap, review triggers) → `dashboard/app.py`. Monitoring rules: `scripts/monitoring.py`. Every call: `data/results/call_log.csv`.
@@ -27,7 +28,9 @@ See README. Dashboard: `.venv/bin/streamlit run dashboard/app.py --server.port 8
 | Item | Where |
 |---|---|
 | Re-count 5 evaluation images (E01, E02, E18, E21, E25) on another day | Labelling log |
-| Re-measure consistency on prompt v3.1 | UAT AQ-04 |
+| Hand-count the 20 fresh images (F01–F20) to check accuracy on unseen images; the model's answers are already saved | `evals/fresh_set.csv`, D26 |
+| Monitoring should alert when no new calls arrive (DF-11 went unnoticed because new calls were silently excluded) | `scripts/monitoring.py` |
+| Average cost ($0.0241) and low confidence (32% on crowded images) are close to or over their limits | Fresh test, D22 |
 | Single images over the cost and speed limits | DF-02, DF-03 |
 | Harden review against rubber-stamping | DF-08, R-10 |
 | Real CCTV evaluation; zones and thresholds with operations; sign-in | Product decisions, section 7 |

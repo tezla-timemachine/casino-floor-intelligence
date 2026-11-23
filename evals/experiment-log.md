@@ -38,8 +38,9 @@ Every model, setting, prompt and answer form we tried, in order, with what it co
 | X16 | 14 Nov | Grid form | Opus 5.5 | medium | v3.1 / form v2 | 30 eval | 30 | 30 ok | 93% within, 89% on crowds; average miss 3.8 (misses the ≤3 mark, one 200-person image); crowd level 93% | $0.700 |
 | X17 | 14 Nov | Second model: counting | Moondream | — | m-count / count only | 30 eval | 30 | 22 usable, 8 impossible numbers | 47% within; 0% on crowds | $0 |
 | X18 | 14 Nov | Second model: full form | Moondream | — | v3.1 / form v2 | 5 eval | 5 | 0 ok | Can't fill the form; 25–138 s per image | $0 |
+| X19 | 23 Nov | Fresh test, automatic (D26) | Opus 5.5 | medium | v3.1 / form v2 | 20 fresh ×3 | 60 | 60 ok | Never seen before; no hand counts. Consistency 95% within the margin, 65% same count; crowd level the same in all 20; 40% of results to review; average $0.0241, 8.9 s. Found DF-11 | $1.449 |
 
-**Totals:** 18 experiments, 406 model calls (including 30 refused for lack of credit; X01 adds 1 call not in the log), **$5.17** of the $10 budget. One more image analysed in UAT brings the project total to **$5.19**.
+**Totals:** 19 experiments, 466 model calls (including 30 refused for lack of credit; X01 adds 1 call not in the log), **$6.62** of the $10 budget. One more image analysed in UAT brings the project total to **$6.64**.
 
 ---
 

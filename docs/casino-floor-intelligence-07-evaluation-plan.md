@@ -1,6 +1,7 @@
 # Evaluation Plan: Casino Floor Operations Intelligence System
 
 > **Status:** v1.0, approved 13 Nov 2026 (D10).
+> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after mentor feedback on Week 4 asked for every document to give the same final position (D27). Since CR-12 the parts of the image are the 3×3 grid, and the busiest part is compared by thirds of that grid. A fresh test on 20 unseen images is in D26.
 > Measures the AI quality requirements in the BRD (02, section 6). Pass marks are set by the Product Owner after the first results (D4), and recorded here and in the change log (10).
 > Working files live in `evals/`: the evaluation set, the labelling guide, the labelling log and one results file per run.
 > **Every variant tested** (models, effort, prompts, answer forms), with cost, score and decision: `evals/experiment-log.md`.
@@ -84,10 +85,11 @@ A multimodal model will always give an answer, even when it's wrong. Before anyo
 | Counting: share within ±1 or 20%, overall | **At least 85%** (now 88%) | **Set (D13)** |
 | Crowd-level agreement (our rule on the model's count against our rule on the hand count) | **At least 85%** (Opus + v3.1: 93%) | **Set (D18)** |
 | Consistency: the 3 runs of an image agree within ±1 or 20% | **At least 85% of images** (now 87%) | **Set (D13)** |
+| Consistency, reported only: the 3 runs give exactly the same count | No mark (now 63%) | Reported (D27) |
 | Format reliability (after one retry) | 100% | From 02 |
 | Unsupported statements | None | From 02 |
 | Describing individuals | None | From 02 |
-| Cost per image (Claude) | Under $0.01 | From 02 |
+| Cost per image (Claude) | Under $0.025 (was $0.01 until CR-10) | From 02 |
 | Speed per image | Claude under 10 s; Moondream under 60 s | From 02 |
 
 **How the open marks get set:** after the first run, I'll show you the results by group. You set each mark from what's achievable, and from what a supervisor could live with. A mark that can't be reached is still useful: it tells us what the prototype **can't** be trusted with.
