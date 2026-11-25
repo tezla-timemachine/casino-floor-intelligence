@@ -1,6 +1,7 @@
 """Casino floor operations dashboard (brief Steps 14, 15, 17). Runs on this computer only.
 
     .venv/bin/streamlit run dashboard/app.py --server.port 8505
+    VIEW_ONLY=1 .venv/bin/streamlit run dashboard/app.py --server.port 8505    # for demos: no API calls, no changes
 
 Pages: Floor view (one analysed image), History (all images), Review queue (human review), Monitoring.
 History starts from the evaluation run with the product setting (Claude Opus 5.5, prompt v3.1) and grows with
@@ -11,6 +12,7 @@ from __future__ import annotations
 import datetime as dt
 import glob
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -25,6 +27,8 @@ import pipeline as pl  # noqa: E402
 
 RESULTS = ROOT / "data" / "results"
 HISTORY, REVIEWS, UPLOADS = RESULTS / "history.jsonl", RESULTS / "reviews.csv", ROOT / "data" / "uploads"
+# View-only mode for demos (D28): no calls to the Claude API and no changes to saved results.
+VIEW_ONLY = os.environ.get("VIEW_ONLY", "").strip().lower() in {"1", "true", "yes"}
 LEVEL_COLOURS = {"Normal": "#2e7d32", "Busy": "#e08a00", "Highly occupied": "#c62828"}
 
 st.set_page_config(page_title="Casino floor operations", page_icon="🎰", layout="wide")
@@ -63,34 +67,37 @@ st.sidebar.title("Casino floor operations")
 page = st.sidebar.radio("Page", ["Floor view", "History", "Review queue", "Monitoring"])
 st.sidebar.caption("Prototype. Crowd and congestion levels are prototype values, not operational standards. "
                    "Supports supervisors' decisions; never makes them. Counts only: no one is identified.")
+if VIEW_ONLY:
+    st.sidebar.info("**View-only mode.** Saved results only: no calls to Claude, so no API cost, and nothing is changed.")
 
 # ---- Floor view: one image (Step 15) -----------------------------------------------------------
 if page == "Floor view":
-    with st.sidebar.expander("Analyse a new image (sends it to Claude, about $0.02)"):
-        up = st.file_uploader("JPEG or PNG", type=["jpg", "jpeg", "png"])
-        camera = st.text_input("Camera or area (optional)", placeholder="e.g. CAM-07 poker room")
-        when = st.text_input("Captured at (optional)", value=f"{dt.datetime.now():%Y-%m-%d %H:%M}")
-        if up and st.button("Analyse"):
-            UPLOADS.mkdir(parents=True, exist_ok=True)
-            path = UPLOADS / f"{dt.datetime.now():%Y%m%d_%H%M%S}_{up.name}"
-            path.write_bytes(up.getvalue())
-            import anthropic
-            from dotenv import load_dotenv
-            load_dotenv(ROOT / ".env")
-            settings = {"model": "claude-opus-5-5", "effort": "medium", "price_in": pl.PRICES["claude-opus-5-5"][0], "price_out": pl.PRICES["claude-opus-5-5"][1]}
-            with st.spinner("Analysing…"):
-                rec = pl.analyse(anthropic.Anthropic(), {"split": "", "file": path.name, "path": str(path), "camera": camera, "captured_at": when}, "v3.1",
-                                 (pl.PROMPTS / "v3.1.txt").read_text(), f"{dt.date.today():%Y%m%d}_dashboard", settings)
-            with (RESULTS / "call_log.csv").open("a") as log:
-                import csv
-                csv.DictWriter(log, fieldnames=["run", "time", "file", "model", "effort", "model_used", "prompt_version", "status", "problems", "attempts",
-                                                "seconds", "input_tokens", "output_tokens", "cost_usd", "fallback_used", "confidence", "request_id"],
-                               extrasaction="ignore").writerow({**rec, "confidence": (rec.get("answer") or {}).get("confidence", "")})
-            with HISTORY.open("a") as h:
-                h.write(json.dumps(rec) + "\n")
-            st.cache_data.clear()
-            st.success(f"{rec['status']}: {rec['seconds']} s, ${rec['cost_usd']:.4f}")
-            st.rerun()
+    if not VIEW_ONLY:
+        with st.sidebar.expander("Analyse a new image (sends it to Claude, about $0.02)"):
+            up = st.file_uploader("JPEG or PNG", type=["jpg", "jpeg", "png"])
+            camera = st.text_input("Camera or area (optional)", placeholder="e.g. CAM-07 poker room")
+            when = st.text_input("Captured at (optional)", value=f"{dt.datetime.now():%Y-%m-%d %H:%M}")
+            if up and st.button("Analyse"):
+                UPLOADS.mkdir(parents=True, exist_ok=True)
+                path = UPLOADS / f"{dt.datetime.now():%Y%m%d_%H%M%S}_{up.name}"
+                path.write_bytes(up.getvalue())
+                import anthropic
+                from dotenv import load_dotenv
+                load_dotenv(ROOT / ".env")
+                settings = {"model": "claude-opus-5-5", "effort": "medium", "price_in": pl.PRICES["claude-opus-5-5"][0], "price_out": pl.PRICES["claude-opus-5-5"][1]}
+                with st.spinner("Analysing…"):
+                    rec = pl.analyse(anthropic.Anthropic(), {"split": "", "file": path.name, "path": str(path), "camera": camera, "captured_at": when}, "v3.1",
+                                     (pl.PROMPTS / "v3.1.txt").read_text(), f"{dt.date.today():%Y%m%d}_dashboard", settings)
+                with (RESULTS / "call_log.csv").open("a") as log:
+                    import csv
+                    csv.DictWriter(log, fieldnames=["run", "time", "file", "model", "effort", "model_used", "prompt_version", "status", "problems", "attempts",
+                                                    "seconds", "input_tokens", "output_tokens", "cost_usd", "fallback_used", "confidence", "request_id"],
+                                   extrasaction="ignore").writerow({**rec, "confidence": (rec.get("answer") or {}).get("confidence", "")})
+                with HISTORY.open("a") as h:
+                    h.write(json.dumps(rec) + "\n")
+                st.cache_data.clear()
+                st.success(f"{rec['status']}: {rec['seconds']} s, ${rec['cost_usd']:.4f}")
+                st.rerun()
 
     names = [label(r) for r in history]
     choice = st.sidebar.selectbox("Image", names, index=len(names) - 1 if names else 0)
@@ -166,9 +173,13 @@ elif page == "Review queue":
                 st.json(a)
         else:
             right.error(f"{r['status']}: {r['problems']}")
-        note = st.text_input("Note (optional), e.g. the count you see")
-        b1, b2 = st.columns(2)
-        decision = "correct" if b1.button("✓ Correct", use_container_width=True) else ("incorrect" if b2.button("✗ Incorrect", use_container_width=True) else None)
+        if VIEW_ONLY:
+            st.info("View-only mode: a reviewer would mark this result ✓ Correct or ✗ Incorrect here. Decisions aren't saved in this mode.")
+            decision = None
+        else:
+            note = st.text_input("Note (optional), e.g. the count you see")
+            b1, b2 = st.columns(2)
+            decision = "correct" if b1.button("✓ Correct", use_container_width=True) else ("incorrect" if b2.button("✗ Incorrect", use_container_width=True) else None)
         if decision:
             new = pd.DataFrame([{"time": dt.datetime.now().isoformat(timespec="seconds"), "run": r["run"], "file": r["file"],
                                  "eval_id": r.get("eval_id", ""), "reasons": "; ".join(reasons), "decision": decision, "note": note}])

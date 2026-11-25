@@ -47,6 +47,13 @@ cp .env.example .env            # then paste your own Anthropic API key after th
 .venv/bin/streamlit run dashboard/app.py --server.port 8505
 ```
 
+- **For a demo with no API cost,** start it in view-only mode. It shows every saved result but never calls Claude and saves nothing (D28):
+
+  ```bash
+  VIEW_ONLY=1 .venv/bin/streamlit run dashboard/app.py --server.port 8505
+  ```
+
+
 - **The dataset** isn't in this repository. Download "Casino" version 3 (COCO JSON) from [Roboflow Universe](https://universe.roboflow.com/sva-q5vsp/casino-vavjk/dataset/3) (free account) and unzip it into `data/raw/casino-v3/`. Its fingerprint is in [`data/raw/MANIFEST.md`](data/raw/MANIFEST.md).
 - **Main scripts:**
   - `scripts/pipeline.py`: the analysis pipeline;

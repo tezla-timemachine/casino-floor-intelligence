@@ -17,7 +17,7 @@ A Week 5 prototype: Claude Opus 5.5 reads casino floor images and returns a stru
 `scripts/pipeline.py` (check image → call model → check answer, retry once, log) → `scripts/insights.py` (rules, heatmap, review triggers) → `dashboard/app.py`. Monitoring rules: `scripts/monitoring.py`. Every call: `data/results/call_log.csv`.
 
 ## 5. Running it
-See README. Dashboard: `.venv/bin/streamlit run dashboard/app.py --server.port 8505`. Analysing a new image sends it to Anthropic (about $0.02).
+See README. Dashboard: `.venv/bin/streamlit run dashboard/app.py --server.port 8505`. Analysing a new image sends it to Anthropic (about $0.02). For demos: `VIEW_ONLY=1` in front of the same command hides that button and saves no review decisions, so there's no API cost (D28).
 
 ## 6. Conventions
 - Every decision goes in the decision log (03); every change to model, prompt, thresholds or requirements goes in the change log (10), then the evaluation is re-run.

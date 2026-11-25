@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.8.1] — 2026-11-25 — View-only mode
+- `VIEW_ONLY=1` starts the dashboard for demos: no calls to Claude and no saved review decisions (D28, CR-18).
+
 ## [0.8.0] — 2026-11-23 — Feedback fixes
 - Fresh test on 20 unseen images, 3 runs each (D26): consistency 95% on prompt v3.1. Found and fixed DF-11: results lacked the model name, so monitoring ignored new calls.
 - Documents 01–10 brought into line with the final results (D27); case study gains the decision it supports and its value in money.
