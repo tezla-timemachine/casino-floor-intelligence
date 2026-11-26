@@ -1,4 +1,4 @@
-# Week 5 privacy and responsible use (Step 20)
+# Privacy and responsible use (Step 20)
 
 **Status:** 15 Nov 2026. How the prototype treats people in images, who can see what, how long data is kept, how it's secured, and what a real casino would need to approve. **This is a prototype on public photos: a real deployment needs the casino's privacy, security, legal and operations teams to approve it first.**
 

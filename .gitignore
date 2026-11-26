@@ -5,10 +5,10 @@ __pycache__/
 .DS_Store
 # The downloaded dataset zip is large; the unpacked images and labels are what the project uses
 data/raw/*.zip
-# The dataset and the course brief stay local; only the dataset's fingerprint is published
+# The dataset and the original brief stay local; only the dataset's fingerprint is published
 data/raw/*
 !data/raw/MANIFEST.md
-docs/Week 5 – *.docx
+docs/*–*.docx
 # Photos of real people (dataset images, sheets made from them, uploads) are not published (privacy note, D25)
 data/uploads/
 data/inspection/sheet_*.jpg
@@ -19,3 +19,6 @@ evals/counting_sheets.pdf
 evals/results/20261114_worst_images.jpg
 evals/results/heatmaps/
 evals/fresh_counting_sheets.pdf
+
+# Local editor and preview settings
+.claude/

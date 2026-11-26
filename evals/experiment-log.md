@@ -1,6 +1,6 @@
 # Experiment log: every variant tested
 
-Every model, setting, prompt and answer form we tried, in order, with what it cost, how it scored and what was decided. It's the Week 5 equivalent of Week 4's MLflow run history. The raw record of every call is `data/results/call_log.csv`; each run's answers are in `data/results/runs/<run>.jsonl`.
+Every model, setting, prompt and answer form we tried, in order, with what it cost, how it scored and what was decided. It plays the role of an MLflow run history. The raw record of every call is `data/results/call_log.csv`; each run's answers are in `data/results/runs/<run>.jsonl`.
 
 **Scores** are against Tez's hand counts on the 30-image evaluation set (D3, D10), unless the images are the 5 trial images. "Within" = misses by no more than 1 person or 20% of the true count.
 

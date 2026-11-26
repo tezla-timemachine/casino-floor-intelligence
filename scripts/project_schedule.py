@@ -1,4 +1,4 @@
-"""The Week 5 task schedule and Gantt chart (project plan, 04 and 05).
+"""The task schedule and Gantt chart (project plan, 04 and 05).
 
     .venv/bin/python scripts/project_schedule.py
 
@@ -61,7 +61,7 @@ def main():
     ax.grid(axis="x", alpha=0.25); ax.spines[["top", "right"]].set_visible(False)
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in COLOURS.values()]
     ax.legend(handles, COLOURS.keys(), loc="upper right", frameon=False, fontsize=8.5)
-    ax.set_title("Week 5 schedule (dates after today are proposed)", fontsize=12, color="#1f3b57", loc="left")
+    ax.set_title("Project schedule (dates after today are proposed)", fontsize=12, color="#1f3b57", loc="left")
     fig.tight_layout()
     fig.savefig(DOCS / "casino-floor-intelligence-05-gantt-chart.png", dpi=160); plt.close(fig)
     print("written: schedule CSV and Gantt chart")

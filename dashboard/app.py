@@ -48,7 +48,10 @@ def load_history(_stamp: float) -> list[dict]:
 
 
 def image_path(r: dict) -> Path:
-    return Path(r["path"]) if r.get("path") else pl.RAW / r["split"] / r["file"]
+    if r.get("path"):
+        p = Path(r["path"])
+        return p if p.is_absolute() else ROOT / p
+    return pl.RAW / r["split"] / r["file"]
 
 
 def label(r: dict) -> str:

@@ -1,4 +1,4 @@
-"""Draws the video design diagram for docs/week5-video-design.md.
+"""Draws the video design diagram for docs/video-design.md.
 
     .venv/bin/python scripts/video_diagram.py
 

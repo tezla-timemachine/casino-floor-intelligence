@@ -1,8 +1,8 @@
 # Product / Business Brief: Casino Floor Operations Intelligence System
 
 > **Status:** v1.0, approved by the Product Owner, 13 Nov 2026 (D8). Statements marked *(assumption)* are placeholders, to confirm with a real casino before any deployment.
-> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after mentor feedback on Week 4 asked for every document to give the same final position (D27).
-> Builds on the approved use case (D4) and the dataset fact sheet (`docs/week5-dataset.md`).
+> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after reviewer feedback on the revenue forecasting project asked for every document to give the same final position (D27).
+> Builds on the approved use case (D4) and the dataset fact sheet (`docs/dataset.md`).
 
 ---
 
@@ -112,7 +112,7 @@ For each casino floor image, the system:
 
 ## 8. Stakeholders and decision rights
 
-Roles are titles only. In this course project, Tez holds the Product Owner and Delivery Lead roles.
+Roles are titles only. In this project, Tez holds the Product Owner and Delivery Lead roles.
 
 | Stakeholder | Interest | Decides |
 |---|---|---|
@@ -121,4 +121,4 @@ Roles are titles only. In this course project, Tez holds the Product Owner and D
 | Casino operations manager *(future)* | Better floor visibility | Real crowd and congestion thresholds, per area |
 | Surveillance / security team *(future)* | Camera access and footage | Who can see images, and how |
 | Privacy, legal and information security *(future)* | Lawful, proportionate use of footage | Whether real footage may be used, retention, and any online AI service |
-| Course mentor | Learning and quality | Reviews the work |
+| Reviewer | Quality | Reviews the work |

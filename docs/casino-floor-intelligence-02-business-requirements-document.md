@@ -1,7 +1,7 @@
 # Business Requirements Document: Casino Floor Operations Intelligence System (prototype)
 
 > **Status:** v1.2, 23 Nov 2026 (targets filled in from D13 and D18; space use by 3×3 grid, CR-12). v1.1, 14 Nov 2026: cost limit changed (CR-10). Baseline v1.0 approved by the Product Owner, 13 Nov 2026 (D8). Changes from here go through the change control log (10).
-> Sources: Product brief (01), approved use case (D4), dataset fact sheet (`docs/week5-dataset.md`), the Week 5 brief.
+> Sources: Product brief (01), approved use case (D4), dataset fact sheet (`docs/dataset.md`), the project brief.
 > The targets first marked "set after first results" were set from the Phase 3 and 4 results (D13, D18), in v1.2.
 
 ---
@@ -96,7 +96,7 @@ How each is met technically goes in the architecture document (03). Pass marks a
 |---|---|
 | **Cost** | Claude: under **$0.025 per image** at the chosen settings (Opus 5.5 + prompt v3 measured at $0.020; was $0.01 until CR-10). Whole prototype: under **$10** of API spend |
 | **Speed** | Claude: under 10 seconds per image. Moondream: under 60 seconds per image on this Mac *(proposed)* |
-| **Where it runs** | Everything on this computer, except calls to Claude (the same principle as Week 4) |
+| **Where it runs** | Everything on this computer, except calls to Claude (the same principle as the revenue forecasting project) |
 | **Keys and secrets** | The API key stays in a private local file, never in code, chat or GitHub |
 | **Reproducible** | Package versions pinned; the dataset version and fingerprint recorded; prompts versioned |
 | **Traceable** | Every result traceable to its image, model, prompt version and time |

@@ -1,6 +1,6 @@
 # Fresh test on 20 unseen images (23 Nov 2026, D26)
 
-**Why:** mentor feedback on Week 4 asked for validation on new data. Every Week 5 result came from the same 30 evaluation images, and the product prompt (v3.1) was chosen by its score on them. These 20 images had never been sent to any model.
+**Why:** reviewer feedback on the revenue forecasting project asked for validation on new data. Every earlier result came from the same 30 evaluation images, and the product prompt (v3.1) was chosen by its score on them. These 20 images had never been sent to any model.
 
 **What ran:** the product setting (Claude Opus 5.5, medium effort, prompt v3.1, answer form v2), **3 times on each image**, 60 calls, **$1.45**. Images chosen by `scripts/make_fresh_set.py` (seed 26) in the same mix of groups as the evaluation set: 4 crowded, 3 dark, 3 labelled empty, 5 busy, 5 quiet. Scored by `scripts/score_fresh.py`; per-image detail in `20261123_fresh_per_image.csv`.
 

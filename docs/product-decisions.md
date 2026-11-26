@@ -1,4 +1,4 @@
-# Week 5 product decisions (Step 18)
+# Product decisions (Step 18)
 
 **Status:** 15 Nov 2026. One section for each question the brief asks, with the evidence behind it. Every decision is recorded in full (what, why, who) in the decision log, section 3 of `docs/casino-floor-intelligence-03-ai-architecture-and-decision-log.md` (D1–D23); the experiments behind them are in `evals/experiment-log.md`.
 
@@ -69,4 +69,4 @@
 
 ## 8. How the system can extend to video
 
-See `docs/week5-video-design.md`. In short: every analysis already accepts a **camera name and a time** (FR-22), so a video frame is just an image with a camera and a time. The design pairs **a cheap local person counter every few seconds** with **Claude on key frames every 5–15 minutes, or when counts jump**. Sending every frame to Claude would cost about **$33 per camera per day**.
+See `docs/video-design.md`. In short: every analysis already accepts a **camera name and a time** (FR-22), so a video frame is just an image with a camera and a time. The design pairs **a cheap local person counter every few seconds** with **Claude on key frames every 5–15 minutes, or when counts jump**. Sending every frame to Claude would cost about **$33 per camera per day**.

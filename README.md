@@ -1,8 +1,8 @@
 # Casino floor operations intelligence system
 
-Week 5 project: a prototype that uses a multimodal AI model (Claude) to turn casino floor images into operations information: people counts, crowd levels, a heatmap, space use, congestion and a short summary, with human review, a dashboard and model monitoring. **A tested prototype and a starting point, not a system ready for a casino floor.**
+A prototype that uses a multimodal AI model (Claude) to turn casino floor images into operations information: people counts, crowd levels, a heatmap, space use, congestion and a short summary, with human review, a dashboard and model monitoring. **A tested prototype and a starting point, not a system ready for a casino floor.**
 
-**Start here:** [`docs/casino-floor-intelligence-09-product-case-study.md`](docs/casino-floor-intelligence-09-product-case-study.md), then the annotated brief [`docs/week5-brief-what-we-did.docx`](docs/week5-brief-what-we-did.docx), which says what we did under every point of the brief.
+**Start here:** [`docs/casino-floor-intelligence-09-product-case-study.md`](docs/casino-floor-intelligence-09-product-case-study.md), then the annotated brief [`docs/brief-what-we-did.docx`](docs/brief-what-we-did.docx), which says what we did under every point of the brief.
 
 ## Results in brief
 
@@ -30,10 +30,10 @@ Week 5 project: a prototype that uses a multimodal AI model (Claude) to turn cas
 | [08 UAT workbook](docs/casino-floor-intelligence-08-user-acceptance-testing.xlsx) | Business and system tests, defects |
 | [09 Case study](docs/casino-floor-intelligence-09-product-case-study.md) | The whole story |
 | [10 Change control log](docs/casino-floor-intelligence-10-change-control-log.md) | Every change to model, prompt, thresholds and requirements |
-| [Dataset fact sheet](docs/week5-dataset.md) | What's in the dataset, and what isn't |
-| [Product decisions](docs/week5-product-decisions.md) | The brief's Step 18 questions answered |
-| [Video design](docs/week5-video-design.md) | How it extends to video |
-| [Privacy and responsible use](docs/week5-privacy-and-responsible-use.md) and [limitations](docs/week5-limitations.md) | Steps 20 and 21 |
+| [Dataset fact sheet](docs/dataset.md) | What's in the dataset, and what isn't |
+| [Product decisions](docs/product-decisions.md) | The brief's Step 18 questions answered |
+| [Video design](docs/video-design.md) | How it extends to video |
+| [Privacy and responsible use](docs/privacy-and-responsible-use.md) and [limitations](docs/limitations.md) | Steps 20 and 21 |
 | [Experiment log](evals/experiment-log.md) | Every model, prompt and setting tested, with cost and score |
 | [Evaluation results](evals/results/) | Phase 3 and 4 summaries, model comparison, error analysis |
 

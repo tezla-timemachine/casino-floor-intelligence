@@ -1,7 +1,7 @@
 # Project Handover: Casino Floor Operations Intelligence System
 
 ## 1. What this is
-A Week 5 prototype: Claude Opus 5.5 reads casino floor images and returns a structured answer; written rules turn it into crowd level, congestion, space use, a heatmap and a summary; uncertain results go to human review; a dashboard shows it all, with model monitoring. Story: case study (09). Every brief point: `docs/week5-plan.md`.
+A prototype: Claude Opus 5.5 reads casino floor images and returns a structured answer; written rules turn it into crowd level, congestion, space use, a heatmap and a summary; uncertain results go to human review; a dashboard shows it all, with model monitoring. Story: case study (09). Every brief point: `docs/plan.md`.
 
 ## 2. Data
 - Roboflow "Casino" v3 (322 web photos, CC BY 4.0), in `data/raw/casino-v3/` (not in Git). Fingerprint: `data/raw/MANIFEST.md`.

@@ -1,8 +1,8 @@
 # Project Plan: Casino Floor Operations Intelligence System
 
-> **Status:** v1.0, approved 13 Nov 2026 (D9). Dates after today are a **proposal**, to fit your course deadline.
-> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after mentor feedback on Week 4 asked for every document to give the same final position (D27). All seven phases finished on 15 Nov 2026, ahead of the proposed dates.
-> The bullet-by-bullet tracker of the brief is `docs/week5-plan.md`. The task list is `docs/casino-floor-intelligence-05-project-schedule.csv`, drawn by `scripts/project_schedule.py`.
+> **Status:** v1.0, approved 13 Nov 2026 (D9). Dates after today are a **proposal**, to fit the deadline.
+> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after reviewer feedback on the revenue forecasting project asked for every document to give the same final position (D27). All seven phases finished on 15 Nov 2026, ahead of the proposed dates.
+> The bullet-by-bullet tracker of the brief is `docs/plan.md`. The task list is `docs/casino-floor-intelligence-05-project-schedule.csv`, drawn by `scripts/project_schedule.py`.
 
 ---
 
@@ -78,5 +78,5 @@ The full list, with dependencies, is in `casino-floor-intelligence-05-project-sc
 | Constraint | API budget under $10 *(proposed in 02)* |
 | Constraint | The dataset is fixed (version 3) and is web photos, not CCTV |
 | Assumption | About 30 hand-counted images are enough to measure counting. Revisited after the first results |
-| Assumption | The dates fit your course timetable. **To confirm** |
+| Assumption | The dates fit the timetable. **To confirm** |
 | Assumption | Streamlit and Moondream installs are approved when their phases arrive |

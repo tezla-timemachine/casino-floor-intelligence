@@ -1,4 +1,4 @@
-"""Build the UAT workbook (document 08), same layout as Week 1: Overview, Business UAT, System & AI tests,
+"""Build the UAT workbook (document 08), same layout as earlier projects: Overview, Business UAT, System & AI tests,
 Summary, Defects.
 
     .venv/bin/python scripts/make_uat.py
@@ -134,7 +134,7 @@ def main():
     wb = Workbook()
     ov = wb.active; ov.title = "Overview"
     lines = [("Casino Floor Operations Intelligence System: Testing and User Acceptance (document 08)", True), ("", False),
-             ("What is tested: the prototype built in Week 5, Phases 1–6, against the business requirements (02, v1.1) and the AI quality requirements.", False),
+             ("What is tested: the prototype built in Phases 1–6, against the business requirements (02, v1.1) and the AI quality requirements.", False),
              ("Business UAT: Tez, as the floor supervisor, runs each test on the dashboard (http://localhost:8505) and fills in Actual result, Status, Tester and Date.", False),
              ("System & AI tests: run by Claude (delivery) with evidence from the evaluation runs (evals/experiment-log.md); signed off by Tez.", False),
              ("Status values: Pass, Fail, Partly, Pending, Not run. Failures and partial passes are logged on the Defects sheet.", False),

@@ -1,4 +1,4 @@
-# Week 5 limitations (Step 21)
+# Limitations (Step 21)
 
 **Status:** 15 Nov 2026. What this prototype can't show, and why. **This is a prototype and a starting point, not a system ready for a casino floor.**
 

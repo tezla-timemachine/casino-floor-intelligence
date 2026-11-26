@@ -1,6 +1,6 @@
 # Case Study: Casino Floor Operations Intelligence System
 
-**Week 5, 13–15 November 2026.** A prototype that turns casino floor images into operations information, built and evaluated as an AI product, one phase at a time. Tez was Product Owner and Delivery Lead, with Claude building the system and drafting the documents.
+**13–15 November 2026.** A prototype that turns casino floor images into operations information, built and evaluated as an AI product, one phase at a time. Tez was Product Owner and Delivery Lead, with Claude building the system and drafting the documents.
 
 ---
 

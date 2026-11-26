@@ -1,7 +1,7 @@
 # Evaluation Plan: Casino Floor Operations Intelligence System
 
 > **Status:** v1.0, approved 13 Nov 2026 (D10).
-> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after mentor feedback on Week 4 asked for every document to give the same final position (D27). Since CR-12 the parts of the image are the 3×3 grid, and the busiest part is compared by thirds of that grid. A fresh test on 20 unseen images is in D26.
+> **Updated at close, 23 Nov 2026:** statuses and figures brought up to date with the final results, after reviewer feedback on the revenue forecasting project asked for every document to give the same final position (D27). Since CR-12 the parts of the image are the 3×3 grid, and the busiest part is compared by thirds of that grid. A fresh test on 20 unseen images is in D26.
 > Measures the AI quality requirements in the BRD (02, section 6). Pass marks are set by the Product Owner after the first results (D4), and recorded here and in the change log (10).
 > Working files live in `evals/`: the evaluation set, the labelling guide, the labelling log and one results file per run.
 > **Every variant tested** (models, effort, prompts, answer forms), with cost, score and decision: `evals/experiment-log.md`.

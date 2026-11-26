@@ -1,4 +1,4 @@
-# Week 5: preparing for video (Step 16)
+# Preparing for video (Step 16)
 
 **Status:** design note, 15 Nov 2026. Video is designed for, not built (the brief: "you do not need to implement all of this now"). One small part is built now: every analysis accepts a **camera name and a time** (FR-22, defect DF-07 closed).
 

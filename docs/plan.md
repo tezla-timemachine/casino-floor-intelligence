@@ -1,6 +1,6 @@
-# Week 5 plan: Casino Floor Operations Intelligence System
+# Project plan: Casino Floor Operations Intelligence System
 
-**What this is:** your guide to Week 5. It explains what we're building, the order we'll build it in, the decisions you'll make, and, for every point in the brief, what we plan to do. As we go, each "Planned" line becomes "Done", with what we actually did, just as in Week 4.
+**What this is:** your guide to the project. It explains what we're building, the order we'll build it in, the decisions you'll make, and, for every point in the brief, what we plan to do. As we go, each "Planned" line becomes "Done", with what we actually did, as in the revenue forecasting project.
 
 **Status key:** Not started · In progress · Done
 
@@ -34,7 +34,7 @@ It shows all of this on a dashboard. It **supports** a supervisor's decision; it
 ## 2. How we'll work
 
 - **One phase at a time.** Each phase ends with a short recap and your sign-off before the next one starts.
-- **Decisions:** for each one, I explain why it matters, give the options with their trade-offs and a recommendation, and you decide. Every decision goes in a decision log, as in Week 4.
+- **Decisions:** for each one, I explain why it matters, give the options with their trade-offs and a recommendation, and you decide. Every decision goes in a decision log, as in the revenue forecasting project.
 - **Nothing leaves your computer without a yes.** That covers sending images to an online AI service and any upload.
 - **You handle your own keys and accounts.** You create any accounts and paste API keys into a local file yourself, never into the chat.
 - **Downloads and installs:** I give you the size first, and nothing happens until you say yes.
@@ -65,7 +65,7 @@ It shows all of this on a dashboard. It **supports** a supervisor's decision; it
 | E | Where the heatmap's positions come from | Phase 4 | The model marks where people are; or a separate person detector; or the dataset's labels (test images only) |
 | F | How congestion is judged | Phase 4 | Many people in a small part of the image, with a written rule |
 | G | When an image goes to human review | Phase 6 | Low confidence, the two models disagree, or the count is unusual |
-| H | Dashboard and GitHub | Phase 6–7 | Streamlit on your computer, and a public repository, as in Week 4 |
+| H | Dashboard and GitHub | Phase 6–7 | Streamlit on your computer, and a public repository, as in the revenue forecasting project |
 
 ---
 
@@ -110,9 +110,9 @@ The dataset is public, so sending its images to a hosted model is low risk. A re
 | Use Computer Vision and Multimodal AI to understand floor use | A multimodal model reads each image. Where it helps, simple calculations on its output (counts per area, heatmap) | Done |
 | Don't simply identify objects; turn visuals into business insight | Every output ends in an operations question answered: how busy, where, does anyone need to look | Done |
 | Use the Roboflow Casino Object Detection Dataset (version 3) | Download version 3 and record exactly which version and when (Decision A) | Done (D2, data/raw/MANIFEST.md) |
-| Inspect the dataset properly before building | Phase 1 is all inspection. No model work until it's done | Done (docs/week5-dataset.md) |
-| Don't assume information the dataset doesn't have | A dataset fact sheet records only what's actually there | Done (docs/week5-dataset.md) |
-| Document what comes from the dataset and what's calculated or estimated | Every field we show is labelled **from the dataset**, **from the model (estimate)** or **calculated by us** | Done (docs/week5-dataset.md) |
+| Inspect the dataset properly before building | Phase 1 is all inspection. No model work until it's done | Done (docs/dataset.md) |
+| Don't assume information the dataset doesn't have | A dataset fact sheet records only what's actually there | Done (docs/dataset.md) |
+| Document what comes from the dataset and what's calculated or estimated | Every field we show is labelled **from the dataset**, **from the model (estimate)** or **calculated by us** | Done (docs/dataset.md) |
 
 ### Main business problem and product goal
 
@@ -130,22 +130,22 @@ The dataset is public, so sending its images to a hosted model is low risk. A re
 
 | Brief says | What we plan to do | Status |
 |---|---|---|
-| Review the dataset; what kinds of images | Look through the images and group them by type of scene | Done (docs/week5-dataset.md) |
-| What annotations exist; which objects are labelled | List every label and how often it's used | Done (docs/week5-dataset.md) |
-| How people are represented | Check how people are labelled, and whether partly hidden people are included | Done (docs/week5-dataset.md) |
-| Number of images; variation between them | Count the images in each split (training, validation, test) and show a sample sheet | Done (docs/week5-dataset.md) |
-| Some images more people, some scenes more crowded | Chart the number of labelled people per image | Done (docs/week5-dataset.md) |
-| Lighting and camera angles vary | Measure brightness per image, and tag the camera angle on a sample | Done (docs/week5-dataset.md) |
-| No extra assumptions until inspected; document the actual structure | Write a dataset fact sheet (`docs/week5-dataset.md`) | Done (docs/week5-dataset.md) |
+| Review the dataset; what kinds of images | Look through the images and group them by type of scene | Done (docs/dataset.md) |
+| What annotations exist; which objects are labelled | List every label and how often it's used | Done (docs/dataset.md) |
+| How people are represented | Check how people are labelled, and whether partly hidden people are included | Done (docs/dataset.md) |
+| Number of images; variation between them | Count the images in each split (training, validation, test) and show a sample sheet | Done (docs/dataset.md) |
+| Some images more people, some scenes more crowded | Chart the number of labelled people per image | Done (docs/dataset.md) |
+| Lighting and camera angles vary | Measure brightness per image, and tag the camera angle on a sample | Done (docs/dataset.md) |
+| No extra assumptions until inspected; document the actual structure | Write a dataset fact sheet (`docs/dataset.md`) | Done (docs/dataset.md) |
 
 ### Step 2: Define the business use case (Phase 1)
 
 | Brief says | What we plan to do | Status |
 |---|---|---|
-| Focus on floor operations: what does the team need to know | A one-page use case: who uses it, what question they're asking, and what they do next | Done (D4, docs/week5-use-case.md) |
-| Primary focus: occupancy, concentration, congestion, space use | These four drive the output fields and the dashboard | Done (D4, docs/week5-use-case.md) |
-| How it supports an operations manager; flag an area for review | A short example story: image in, flag raised, supervisor checks | Done (D4, docs/week5-use-case.md) |
-| Don't decide staffing; inform the supervisor | Written as a product rule, and checked in the summaries (Step 10) | Done (D4, docs/week5-use-case.md) |
+| Focus on floor operations: what does the team need to know | A one-page use case: who uses it, what question they're asking, and what they do next | Done (D4, docs/use-case.md) |
+| Primary focus: occupancy, concentration, congestion, space use | These four drive the output fields and the dashboard | Done (D4, docs/use-case.md) |
+| How it supports an operations manager; flag an area for review | A short example story: image in, flag raised, supervisor checks | Done (D4, docs/use-case.md) |
+| Don't decide staffing; inform the supervisor | Written as a product rule, and checked in the summaries (Step 10) | Done (D4, docs/use-case.md) |
 
 ### Step 3: Use a multimodal model (Phase 2)
 
@@ -259,7 +259,7 @@ The dataset is public, so sending its images to a hosted model is low risk. A re
 
 | Brief says | What we plan to do | Status |
 |---|---|---|
-| Design so video can be added; analyse frames continuously | The pipeline takes "a frame with a time and camera", so a video is just many frames | Done: a frame = image + camera + time (FR-22 built); docs/week5-video-design.md |
+| Design so video can be added; analyse frames continuously | The pipeline takes "a frame with a time and camera", so a video is just many frames | Done: a frame = image + camera + time (FR-22 built); docs/video-design.md |
 | Movement, flow, change over time, repeated congestion, busy periods, movement between areas, averages by time, before and after decisions | A short design note: what each needs (time stamps, fixed camera areas, tracking) and what we'd add | Done: design note, section 4 |
 | Don't build it all now | Design note only, plus the frame-based structure | Done: design only, plus the time-and-camera input |
 
@@ -268,26 +268,26 @@ The dataset is public, so sending its images to a hosted model is low risk. A re
 | Brief says | What we plan to do | Status |
 |---|---|---|
 | Track model version, prompt version, response time, cost, counting error, failed requests, low confidence, review results, unsupported or incorrect answers | Every run logged with all of these, and a monitoring panel on the dashboard | Done (Monitoring page, scripts/monitoring.py) |
-| Define what means the model needs investigation | Written alert rules, as in Week 4 (for example, the share of failed requests or rejected answers rising) | Done: alert limits (D22) |
+| Define what means the model needs investigation | Written alert rules, as in the revenue forecasting project (for example, the share of failed requests or rejected answers rising) | Done: alert limits (D22) |
 
 ### Step 18: Product decisions (Phase 7)
 
 | Brief says | What we plan to do | Status |
 |---|---|---|
 | Document the important decisions | Decision log from day one (section 3 of `docs/casino-floor-intelligence-03-ai-architecture-and-decision-log.md`) | Done: decision log D1–D23 (03, section 3) |
-| Which model and why; why structured output; crowd categories; human review; how the heatmap helps; what not to trust it with; what's needed for real use; how video extends it | One section each, pointing to the evidence | Done: docs/week5-product-decisions.md |
+| Which model and why; why structured output; crowd categories; human review; how the heatmap helps; what not to trust it with; what's needed for real use; how video extends it | One section each, pointing to the evidence | Done: docs/product-decisions.md |
 
 ### Step 19: Risks (Phase 7)
 
 | Brief says | What we plan to do | Status |
 |---|---|---|
-| Missed people; double counting; crowded scenes; lighting; camera angle; unsupported conclusions; real casino differs; inconsistent answers; privacy; staff over-trusting | A risk register, as in Week 4. Each risk with what we saw, the protection, what's left and an owner | Done: 16 risks with evidence (06, D24) |
+| Missed people; double counting; crowded scenes; lighting; camera angle; unsupported conclusions; real casino differs; inconsistent answers; privacy; staff over-trusting | A risk register, as in the revenue forecasting project. Each risk with what we saw, the protection, what's left and an owner | Done: 16 risks with evidence (06, D24) |
 
 ### Step 20: Privacy and responsible use (Phase 7)
 
 | Brief says | What we plan to do | Status |
 |---|---|---|
-| Focus on occupancy, not individuals | Outputs are counts and areas only | Done: docs/week5-privacy-and-responsible-use.md, section 1 |
+| Focus on occupancy, not individuals | Outputs are counts and areas only | Done: docs/privacy-and-responsible-use.md, section 1 |
 | No facial recognition, no identifying customers, no personal characteristics | Not built, and the prompts tell the model not to describe people. Checked in testing | Done: not built; prompt forbids it; checked (D20, BU-12) |
 | Who can access images; data retention; security | A short privacy note covering each | Done: sections 3–5 |
 | Real use needs approval from privacy, security, legal and operations | Stated as a condition in the privacy note and the product decisions | Done: section 6 |
@@ -296,7 +296,7 @@ The dataset is public, so sending its images to a hosted model is low risk. A re
 
 | Brief says | What we plan to do | Status |
 |---|---|---|
-| The dataset isn't every casino; camera position, lighting and crowding may change results | A limitations section, with the evidence from Steps 5, 11 and 13 | Done: docs/week5-limitations.md |
+| The dataset isn't every casino; camera position, lighting and crowding may change results | A limitations section, with the evidence from Steps 5, 11 and 13 | Done: docs/limitations.md |
 | Images can't show movement; video needed for flow and continuous occupancy | Stated plainly, and linked to the video design (Step 16) | Done: limitations section 4, linked to the video design |
 | Present it as a prototype and starting point | Every document and the dashboard say "prototype" | Done: stated in every document and the dashboard |
 
@@ -304,13 +304,13 @@ The dataset is public, so sending its images to a hosted model is low risk. A re
 
 | Brief says | Where it will be | Status |
 |---|---|---|
-| Dataset, and dataset analysis | `data/`, `docs/week5-dataset.md` | Done |
+| Dataset, and dataset analysis | `data/`, `docs/dataset.md` | Done |
 | Working multimodal pipeline, with structured output | `scripts/`, results files | Done |
 | People count evaluation, crowd level, heatmap, congestion and space-use analysis | Evaluation documents and dashboard | Done |
 | Model comparison, prompt comparison, error analysis | Evaluation documents | Done |
 | Human review, dashboard, monitoring | Dashboard | Done |
 | Video design, product decisions, privacy, limitations | Design and decision documents | Done |
-| GitHub repository with a clear README | Public repository, as in Week 4 | Done |
+| GitHub repository with a clear README | Public repository, as in the revenue forecasting project | Done |
 
 ---
 
